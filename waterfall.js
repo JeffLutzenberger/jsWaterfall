@@ -50,7 +50,7 @@ var Waterfall = function (canvas) {
         p = new Particle(this.originX + Math.random() * this.waterfallWidth,
                          this.originY + Math.random() * this.canvas.height);
         p.vel.x = 0;
-        p.vel.y = 0;
+        p.vel.y = 5;
         this.particles[i] = p;
     }
 };
@@ -115,9 +115,9 @@ Waterfall.prototype = {
        
         v2 = new Vector(this.wayPoint.x - particle.x, this.wayPoint.y - particle.y);
         d2 = v2.squaredLength();
-        d2 = 500 / d2;
-        if (d2 > 0.3) {
-            d2 = 0.3;
+        d2 = 1000 / d2;
+        if (d2 > 0.2) {
+            d2 = 0.2;
         }
         v2 = v2.normalize();
         v2 = v2.scalarMultiply(d2);
@@ -130,7 +130,7 @@ Waterfall.prototype = {
             particle.x = this.originX + Math.random() * this.waterfallWidth;
             particle.y = this.originY + Math.random() * 10;
             particle.vel.x = 0;
-            particle.vel.y = 0;
+            particle.vel.y = 5;
             for (i = 0; i < particle.numTracers; i += 1) {
                 particle.trail[i].x = particle.x;
                 particle.trail[i].y = particle.y;
